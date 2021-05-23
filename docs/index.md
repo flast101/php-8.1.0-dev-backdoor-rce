@@ -3,7 +3,7 @@ _[<-- Home](https://flast101.github.io)_
 # PHP 8.1.0-dev Backdoor Remote Code Execution
 _PHP 8.1.0-dev Backdoor System Shell Script_
 
-![docs/logo_php8.jpg](docs/logo_php8.jpg "docs/logo_php8.jpg")
+![logo_php8.png](logo_php8.png "logo_php8.png")
 
 
 
