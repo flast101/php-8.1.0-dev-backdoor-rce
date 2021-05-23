@@ -43,7 +43,7 @@ request = requests.Session()
 response = request.get(host)
 
 if str(response) == '<Response [200]>':
-    print("\nInteractive shell is opened on", host, "\nCan't acces tty; job crontol turned off.")
+    print("\nInteractive shell is opened on", host, "\nCan't access tty; job crontol turned off.")
     try:
         while 1:
             cmd = input("$ ")
