@@ -1,11 +1,7 @@
-# php-8.1.0-dev-backdoor-rce
-PHP 8.1.0-dev Backdoor System Shell Script
+# PHP 8.1.0-dev Backdoor Remote Code Execution
+_PHP 8.1.0-dev Backdoor System Shell Script_
 
-
-# PHP 8.1.0-dev Backdoor Remote Command Execution
-
-
-![docs/logo_php8.svg](docs/logo_php8.svg "docs/logo_php8.svg")
+![docs/logo_php8.png](docs/logo_php8.png "docs/logo_php8.png")
 
 
 
