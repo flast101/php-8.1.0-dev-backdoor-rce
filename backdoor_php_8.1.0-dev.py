@@ -26,7 +26,7 @@ import os
 import re
 import requests
 
-host = input("Enter the full host url:\n")
+host = input("Enter the host url:\n")
 request = requests.Session()
 response = request.get(host)
 
