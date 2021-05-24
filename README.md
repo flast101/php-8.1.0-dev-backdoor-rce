@@ -1,15 +1,15 @@
 # PHP 8.1.0-dev Backdoor Remote Code Execution
 _PHP 8.1.0-dev Backdoor System Shell Script_
 
-![docs/logo_php8.png](docs/logo_php8.png "docs/logo_php8.png")
+![docs/logo_php81.png](docs/logo_php81.png "docs/logo_php81.png")
 
-
+PHP verion 8.1.0-dev was released with a backdoor on March 28th 2021, but the backdoor was quickly discovered and removed. If this version of PHP runs on a server, an attacker can execute arbitrary code by sending the User-Agentt header.
 
 * * * 
 
 ## POC Script
 
-- **Exploit Title:** PHP 8.1.0-dev Backdoor Remote Command Execution    
+- **Exploit Title:** PHP 8.1.0-dev Backdoor Remote Code Execution    
 - **Date:** 23 may 2021   
 - **Exploit Author:** flast101   
 - **Vendor Homepage:** [https://www.php.net/](https://www.php.net/)    
@@ -23,7 +23,6 @@ _PHP 8.1.0-dev Backdoor System Shell Script_
 [https://github.com/vulhub/vulhub/blob/master/php/8.1-backdoor/README.zh-cn.md](https://github.com/vulhub/vulhub/blob/master/php/8.1-backdoor/README.zh-cn.md)    
 
 
-An early release of PHP, the PHP 8.1.0-dev version was released with a backdoor on March 28th 2021, but the backdoor was quickly discovered and removed. If this version of PHP runs on a server, an attacker can execute arbitrary code by sending the User-Agentt header.
 
 The following exploit uses the backdoor to provide a pseudo system shell on the host.
 
