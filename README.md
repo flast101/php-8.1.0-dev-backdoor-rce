@@ -14,6 +14,8 @@ _Read full article: https://flast101.github.io/php-8.1.0-dev-backdoor-rce/_
 
 ## POC Script
 
+This short exploit script uses the backdoor to provide a pseudo system shell on the host.
+
 - **Exploit Title:** PHP 8.1.0-dev Backdoor Remote Code Execution    
 - **Date:** 23 may 2021   
 - **Exploit Author:** flast101   
