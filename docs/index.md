@@ -18,7 +18,7 @@ The original code was restored after the issue was discovered, but then tampered
   
 
 * * * 
-## 1- Ths story
+## 1- The story
 
 ### 1.1- PHP source code targeted in backdoor attack ?
 
