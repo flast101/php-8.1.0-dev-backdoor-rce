@@ -14,7 +14,7 @@ _PHP 8.1.0-dev Backdoor System Shell Script_
 - **Exploit Author:** flast101   
 - **Vendor Homepage:** [https://www.php.net/](https://www.php.net/)    
 - **Software Link:**     
-    [https://hub.docker.com/r/phpdaily/php]([https://hub.docker.com/r/phpdaily/php])        
+    [https://hub.docker.com/r/phpdaily/php](https://hub.docker.com/r/phpdaily/php)        
     [https://github.com/phpdaily/php](https://github.com/phpdaily/php)    
 - **Tested on version:** 8.1.0-dev    
 - **CVE** : N/A    
