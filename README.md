@@ -3,7 +3,12 @@ _PHP 8.1.0-dev Backdoor System Shell Script_
 
 ![docs/logo_php81.png](docs/logo_php81.png "docs/logo_php81.png")
 
-PHP verion 8.1.0-dev was released with a backdoor on March 28th 2021, but the backdoor was quickly discovered and removed. If this version of PHP runs on a server, an attacker can execute arbitrary code by sending the User-Agentt header.
+PHP verion 8.1.0-dev was released with a backdoor on March 28th 2021, but the backdoor was quickly discovered and removed. If this version of PHP runs on a server, an attacker can execute arbitrary code by sending the User-Agentt header.   
+
+The original code was restored after the issue was discovered, but then tampered with a second time. The breach would have created a backdoor in any websites that ran the compromised version of PHP, enabling hackers to perform remote code execution on the site.
+
+_Read full article: https://flast101.github.io/php-8.1.0-dev-backdoor-rce/_
+
 
 * * * 
 
