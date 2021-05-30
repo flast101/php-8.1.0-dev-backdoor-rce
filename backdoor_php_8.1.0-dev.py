@@ -3,9 +3,7 @@ Exploit Title: PHP 8.1.0-dev Backdoor Remote Code Execution
 Date: 23 may 2021
 Exploit Author: flast101
 Vendor Homepage: https://www.php.net/
-Software Link: 
-    - https://hub.docker.com/r/phpdaily/php
-    - https://github.com/phpdaily/php
+Software Link: https://github.com/vulhub/vulhub/tree/master/php/8.1-backdoor
 Version: 8.1.0-dev
 Tested on: Ubuntu 20.04
 CVE : N/A
