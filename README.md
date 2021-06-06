@@ -45,8 +45,6 @@ Interactive shell is opened on http://http://a.b.c.d
 Can't acces tty; job crontol turned off.
 $ id
 uid=1000(user) gid=1000(user) groups=1000(user)
-
-$
 ```
 
 * * * 
