@@ -49,9 +49,7 @@ As a consequence, the maintainers have migrated master.php.net to a new main.php
 
 ## 2- POC Script
 
-This short exploit script [backdoor_php_8.1.0-dev.py](https://github.com/flast101/php-8.1.0-dev-backdoor-rce/blob/main/backdoor_php_8.1.0-dev.py) uses the backdoor to provide a pseudo system shell on the host.
-
-It has the number [49933](https://www.exploit-db.com/exploits/49933) on [Exploit DB](https://www.exploit-db.com/exploits/49933).   
+This short exploit script [backdoor_php_8.1.0-dev.py](https://github.com/flast101/php-8.1.0-dev-backdoor-rce/blob/main/backdoor_php_8.1.0-dev.py) uses the backdoor to provide a pseudo system shell on the host. Find it on [Exploit DB](https://www.exploit-db.com/exploits/49933).   
 
 - **Exploit Title:** PHP 8.1.0-dev Backdoor Remote Code Execution    
 - **Date:** 23 may 2021   
