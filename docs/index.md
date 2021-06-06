@@ -29,8 +29,8 @@ In the malicious commits, the attackers published a mysterious change upstream, 
 
 ![php-repo.png](php-repo.png "php-repo.png")
 
-However, taking a look at the added line 370 where zend_eval_string function is called, the code actually plants a backdoor for obtaining easy Remote Code Execution (RCE) on a website running this hijacked version of PHP. This line executes PHP code from within the useragent HTTP header, if the string starts with 'zerodium'.  
-Zerodium is a a Washington-based security firm that specializes in buying and selling zero-day vulnerabilities for a variety of operating systems and popular desktop and Web applications, including for PHP itself.
+However, taking a look at the added line 370 where `zend_eval_string` function is called, the code actually plants a backdoor for obtaining easy Remote Code Execution (RCE) on a website running this hijacked version of PHP. This line executes PHP code from within the useragent HTTP header, if the string starts with 'zerodium'.  
+Zerodium is a Washington-based security firm that specializes in buying and selling zero-day vulnerabilities for a variety of operating systems and popular desktop and Web applications, including for PHP itself.
 
 According to PHP maintainers, this malicious activity stemmed from the compromised git.php.net server, rather than compromise of an individual's Git account. Official announcement states the incident points towards a server compromise.
  
