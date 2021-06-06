@@ -38,7 +38,7 @@ Usage:
 ┌──(user㉿kali)-[~/Documents]
 └─$ python3 backdoor_php_8.1.0-dev.py
   
-Enter the full host url:
+Enter the host url:
 http://a.b.c.d
 
 Interactive shell is opened on http://http://a.b.c.d 
