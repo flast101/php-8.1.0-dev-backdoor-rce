@@ -25,7 +25,7 @@ It has the number [49933](https://www.exploit-db.com/exploits/49933) on [Exploit
 - **Software Link:** [https://github.com/vulhub/vulhub/tree/master/php/8.1-backdoor](https://github.com/vulhub/vulhub/tree/master/php/8.1-backdoor)            
 - **Tested on version:** 8.1.0-dev    
 - **CVE** : N/A    
-- Previous vulnerability references:    
+- **Vulnerability references**:    
 [https://github.com/php/php-src/commit/2b0f239b211c7544ebc7a4cd2c977a5b7a11ed8a](https://github.com/php/php-src/commit/2b0f239b211c7544ebc7a4cd2c977a5b7a11ed8a)    
 [https://github.com/vulhub/vulhub/blob/master/php/8.1-backdoor/README.zh-cn.md](https://github.com/vulhub/vulhub/blob/master/php/8.1-backdoor/README.zh-cn.md)    
 
